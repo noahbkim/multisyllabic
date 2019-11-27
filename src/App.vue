@@ -1,29 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <h1 class="with-subtitle">Multisyllabic</h1>
+    <span class="subtitle">A Syllabus Generator for American University</span>
+    <div class="section">
+      <h2>Course Information</h2>
+
+    </div>
+    <button @click="download()">Download</button>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import HelloWorld from './components/HelloWorld.vue'
+import {Component, Vue} from 'vue-property-decorator';
+import {Document, Packer} from 'docx';
+import {CourseDescription} from "./template";
+import {download} from "./download";
 
-@Component({
-  components: {
-    HelloWorld
+@Component({components: {}})
+export default class App extends Vue {
+  public download() {
+
   }
-})
-export default class App extends Vue {}
+}
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body {
+    max-width: 800px;
+    margin: 4rem auto;
+  }
+
+  .section {
+    margin: 2em 0;
+    display: block;
+  }
+
+  .with-subtitle {
+    margin-bottom: 0.25em;
+  }
+
+  .subtitle {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
 </style>
